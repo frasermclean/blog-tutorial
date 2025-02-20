@@ -1,0 +1,23 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <h2>{frontmatter.description}</h2>
+  <div class="post-info">
+    <p>Written by {frontmatter.author}</p>
+    <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
+  </div>
+
+  <slot />
+
+  <style>
+    .post-info {
+      padding: 8px 16px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+  </style>
+</BaseLayout>
