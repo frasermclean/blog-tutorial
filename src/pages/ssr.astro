@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const response = await fetch('https://randomuser.me/api/?results=1&nat=us');
+const data = await response.json();
+const randomUser = data.results[0];
+---
+
+<BaseLayout pageTitle="Server-Side Rendering">
+  <h2>Fetch demo</h2>
+
+  <p>
+    This page demonstrates server-side rendering (SSR) with Astro. The user data
+    below was fetched from the
+    <a href="https://randomuser.me/">Random User API</a>.
+  </p>
+
+  <h3>User information</h3>
+  <div class="user-info">
+    <p>Name: {randomUser.name.first} {randomUser.name.last}</p>
+    <p>Email: {randomUser.email}</p>
+  </div>
+</BaseLayout>
