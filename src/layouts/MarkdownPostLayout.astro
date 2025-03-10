@@ -7,7 +7,7 @@ const { frontmatter } = Astro.props;
   <h2>{frontmatter.description}</h2>
   <div class="post-info">
     <p>Written by {frontmatter.author}</p>
-    <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
+    <p>Published on: {frontmatter.pubDate.toLocaleDateString()}</p>
     <div class="tags">
       {
         frontmatter.tags.map((tag: string) => (
